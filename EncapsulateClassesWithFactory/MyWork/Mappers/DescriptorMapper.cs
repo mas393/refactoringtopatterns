@@ -10,12 +10,12 @@ namespace EncapsulateClassesWithFactory.MyWork.Mappers
         protected List<AttributeDescriptor> CreateAttributeDescriptors() {
             var result = new List<AttributeDescriptor>();
 
-            result.Add(new DefaultDescriptor("remoteId", GetClass(), typeof(int)));
-            result.Add(new DefaultDescriptor("createdDate", GetClass(), typeof(DateTime)));
-            result.Add(new DefaultDescriptor("lastChangedDate", GetClass(), typeof(DateTime)));
-            result.Add(new ReferenceDescriptor("createdBy", GetClass(), typeof(User)));
-            result.Add(new ReferenceDescriptor("lastChangedBy", GetClass(), typeof(User)));
-            result.Add(new DefaultDescriptor("optimisticLockVersion", GetClass(), typeof(int)));
+            result.Add(AttributeDescriptor.FromInt("remoteId", GetClass()));
+            result.Add(AttributeDescriptor.FromDateTime("createdDate", GetClass()));
+            result.Add(AttributeDescriptor.FromDateTime("lastChangedDate", GetClass()));
+            result.Add(AttributeDescriptor.FromUser("createdBy", GetClass()));
+            result.Add(AttributeDescriptor.FromUser("lastChangedBy", GetClass()));
+            result.Add(AttributeDescriptor.FromInt("optimisticLockVersion", GetClass()));
             return result;
         }
 
