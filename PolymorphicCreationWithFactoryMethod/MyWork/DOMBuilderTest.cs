@@ -1,9 +1,14 @@
 ﻿namespace PolymorphicCreationWithFactoryMethod.MyWork
 {
-    public class DOMBuilderTest: TestCase
+    public class DOMBuilderTest: AbstractTestBuilder
     {
-        public OutputBuilder Builder { get; private set; }
+        //public OutputBuilder Builder { get; private set; }
+        public override OutputBuilder GetBuilder()
+        {
+            return new DOMBuilder("orders");
+        }
 
+        /*
         public void TestAddAboveRoot()
         {
             string invalidResult =
@@ -28,10 +33,12 @@
 
             }
         }
+        
 
         private void Fail(string failureMessage)
         {
 
         }
+        */
     }
 }

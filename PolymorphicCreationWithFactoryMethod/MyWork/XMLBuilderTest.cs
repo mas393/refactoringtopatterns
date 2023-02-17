@@ -1,7 +1,12 @@
 ﻿namespace PolymorphicCreationWithFactoryMethod.MyWork
 {
-    public class XMLBuilderTest: TestCase
+    public class XMLBuilderTest: AbstractTestBuilder
     {
+		public override OutputBuilder GetBuilder()
+        {
+            return new XMLBuilder("orders");
+        }
+		/*
         public OutputBuilder Builder { get; private set; }
 
         public void TestAddAboveRoot()
@@ -33,5 +38,6 @@
 		{
 
 		}
+		*/
     }
 }
