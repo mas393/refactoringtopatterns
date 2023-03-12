@@ -7,9 +7,17 @@ namespace FormTemplateMethod.MyWork
         private long MILLIS_PER_DAY = 86400000;
         private long DAYS_PER_YEAR = 365;
 
-        public abstract double Capital(Loan loan);
+        public virtual double Capital(Loan loan)
+        {
+            return RiskAmountFor(loan) * Duration(loan) * RiskFactorFor(loan);
+        }
 
-        protected double RiskFactorFor(Loan loan)
+        protected virtual double RiskAmountFor(Loan loan)
+        {
+            return loan.GetCommitment();
+        }
+
+        protected virtual double RiskFactorFor(Loan loan)
         {
             return RiskFactor.GetFactors().ForRating(loan.GetRiskRating());
         }
